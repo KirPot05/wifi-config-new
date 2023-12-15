@@ -1,0 +1,35 @@
+<section class="container m-5">
+  <h2>Wifi Configuration</h2>
+
+  <% if(success){ %>
+  <div>Successfully configured wifi</div>
+  <% } %>
+
+  <form class="container m-5" method="POST" action="/wifi-connect">
+    <div class="mb-3">
+      <label for="wifi_ssid_select" class="form-label">Wifi SSID</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        id="wifi_ssid_select"
+        name="ssid"
+      >
+        <% networks.forEach(function(wifiNetwork){ %>
+        <option><%= wifiNetwork.ssid %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        id="exampleInputPassword1"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</section>
